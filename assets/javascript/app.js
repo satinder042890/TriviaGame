@@ -1,13 +1,5 @@
-// * You'll create a trivia game that shows only one question until the player answers it or their time runs out.
-
-// * If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
-
-// * The scenario is similar for wrong answers and time-outs.
-
-//   * If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question.
-//   * If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question.
-
 // * On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+// Array of objects that stores questions, answers and images.
 var quiz=[{
     question:"In what country would you find shish kebab as an everyday food?",
     answers:["Turkey","China","Chile","Palau"],
@@ -68,7 +60,7 @@ var quiz=[{
     question:"What's the unhealthiest burger in America, according to Men's Health magazine?",
     answers:["the Baconator from Wendy's","the Double Six Dollar Burger","Bacon, Egg and Cheese Croissan’Wich","the Monster Thickburger from Hardee's"],
     // correct:"the Double Six Dollar Burger from Carl's Jr.",
-    correct:"the Double Six Dollar Burger",
+    correct:"the Double Six Dollar   Burger",
     image:"assets/images/answer9.jpg",
     desc:"the Double Six Dollar Burger from Carl's Jr. is the unhealthiest burger in America, according to Men's Health magazine"
 },
@@ -114,15 +106,18 @@ var quiz=[{
     image:"assets/images/answer15.jpg",
     desc:"Walnuts are always find in a Waldorf salad"
 }];
-var i=0;
-var userAnswer=null;
-var totalCorrect=0;
-var totalIncorrect=0;
-var totalQuestions=quiz.length;
-var time=30;
-var intervalId;
-var clockRunning=false;
 
+// global variables 
+var i=0;  // traverse each object one after another
+var userAnswer=null; // stores user answer
+var totalCorrect=0;  // track total correct answers given by the user
+var totalIncorrect=0;  //track total incorrect answers as well as not answered questions
+var totalQuestions=quiz.length;  // stores total number of questions to display them on result page
+var time=30;   // hold current time
+var intervalId;   // stores time interval
+var clockRunning=false; // store clock running state
+
+// function to calculate the time
 function count(){
     time--;
     $("#displayTime").text("Time = "+time);
@@ -154,6 +149,7 @@ function displayQuestion(){
         matchUserAnswer();     
     });
 }
+//compares user answer with correct answer
 function matchUserAnswer(){
     if(userAnswer === quiz[i].correct){
         correctFunction();
@@ -162,6 +158,7 @@ function matchUserAnswer(){
         inCorrectFunction();
     }
 }
+// when user gives correct answer
 function correctFunction(){
     $("#quizArea").empty();
     totalCorrect++;
@@ -172,33 +169,35 @@ function correctFunction(){
     {
         setTimeout(result,4000);
     }
-    else
+    if(i < quiz.length)
     {
-    setTimeout(displayQuestion,4000);
+        setTimeout(displayQuestion,4000);
     }
 }
+// when user gives incorrect answer
 function inCorrectFunction(){
     $("#quizArea").empty();
     totalIncorrect++;
     $("#quizArea").append("INCORRECT: <br><br>"+quiz[i].desc).append("<br><img src = '"+quiz[i].image+"' alt='not found'>");
     i++;
     time=30;
-    // displayQuestion();
     setTimeout(displayQuestion,4000);
 }
+// when user does not give the answer within time
 function timeUp(){
     $("#quizArea").empty();
     totalIncorrect++;
     $("#quizArea").append("OOPS! TIME UP: <br><br>"+quiz[i].desc).append("<br><img src = '"+quiz[i].image+"' alt='not found'>");
     i++;
     time=30;
-    // displayQuestion();
     setTimeout(displayQuestion,4000);
 }
+//show the result after all the questions are done
 function result(){
     $("#quizArea").empty();
     $("#quizArea").append("Total Questions = "+totalQuestions+"<br>Correct Answers = "+totalCorrect+"<br>Incorrect Answers = "+totalIncorrect);
 }
+
 $(document).ready(function(){
     $("#play1").on("click",function(){
         $("#play1").hide();
