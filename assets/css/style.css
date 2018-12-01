@@ -4,7 +4,7 @@
 }
 #play1
 {
-    margin-top: 15%;
+    margin-top: 10%;
     width:40%;
     height:300px;
     margin-left: auto;
@@ -13,11 +13,34 @@
     
 }
 body{
-    background: url("../images/background.jpg");
-    
+    background: url("../images/background1.jpg");
 }
 #quizArea{
     font-family:'Courgette', cursive;
     font-size: 3em;
+    color:whitesmoke;
     
+}
+#bt1:hover,
+#bt0:hover,
+#bt2:hover,
+#bt3:hover{
+    color:#2b0602;
+}
+img{
+    width:40%;
+    height:200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#displayTime{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 4em;
+    border: 5px double black;
+    background-color: #2b0602;
+    padding:0 15% 0 15%;
+    margin-left: auto;
+    margin-right: auto;
+    color:white;
+    margin-top: 3%;
 }
