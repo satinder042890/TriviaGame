@@ -58,9 +58,9 @@ var quiz=[{
 },
 {
     question:"What's the unhealthiest burger in America, according to Men's Health magazine?",
-    answers:["the Baconator from Wendy's","the Double Six Dollar Burger","Bacon, Egg and Cheese Croissan’Wich","the Monster Thickburger from Hardee's"],
+    answers:["the Baconator from Wendy's","the Double Six Dollar Burger from Carls Jr.","Bacon, Egg and Cheese Croissan’Wich","the Monster Thickburger from Hardee's"],
     // correct:"the Double Six Dollar Burger from Carl's Jr.",
-    correct:"the Double Six Dollar   Burger",
+    correct:"the Double Six Dollar Burger from Carls Jr.",
     image:"assets/images/answer9.jpg",
     desc:"the Double Six Dollar Burger from Carl's Jr. is the unhealthiest burger in America, according to Men's Health magazine"
 },
