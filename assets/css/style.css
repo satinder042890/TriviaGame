@@ -17,7 +17,7 @@ body{
 }
 #quizArea{
     font-family:'Courgette', cursive;
-    font-size: 3em;
+    font-size: 3vw;
     color:whitesmoke;
     
 }
@@ -35,7 +35,7 @@ img{
 }
 #displayTime{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 4em;
+    font-size: 4vw;
     border: 5px double black;
     background-color: #2b0602;
     padding:0 15% 0 15%;
