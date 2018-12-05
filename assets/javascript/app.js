@@ -1,4 +1,3 @@
-// * On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
 // Array of objects that stores questions, answers and images.
 var quiz=[{
     question:"In what country would you find shish kebab as an everyday food?",
@@ -181,7 +180,14 @@ function inCorrectFunction(){
     $("#quizArea").append("INCORRECT: <br><br>"+quiz[i].desc).append("<br><img src = '"+quiz[i].image+"' alt='not found'>");
     i++;
     time=30;
-    setTimeout(displayQuestion,4000);
+    if(i === quiz.length)
+    {
+        setTimeout(result,4000);
+    }
+    if(i < quiz.length)
+    {
+        setTimeout(displayQuestion,4000);
+    }
 }
 // when user does not give the answer within time
 function timeUp(){
@@ -190,13 +196,30 @@ function timeUp(){
     $("#quizArea").append("OOPS! TIME UP: <br><br>"+quiz[i].desc).append("<br><img src = '"+quiz[i].image+"' alt='not found'>");
     i++;
     time=30;
-    setTimeout(displayQuestion,4000);
+    if(i === quiz.length)
+    {
+        setTimeout(result,4000);
+    }
+    if(i < quiz.length)
+    {
+        setTimeout(displayQuestion,4000);
+    }
 }
 //show the result after all the questions are done
 function result(){
     $("#quizArea").empty();
-    $("#quizArea").append("Total Questions = "+totalQuestions+"<br>Correct Answers = "+totalCorrect+"<br>Incorrect Answers = "+totalIncorrect);
+    $("#quizArea").append("<div id='result'>Total Questions = "+totalQuestions+"<br>Correct Answers = "+totalCorrect+"<br>Incorrect Answers = "+totalIncorrect+"</div>").append("<img src='http://parentsempowered.org/wp-content/themes/parents-empowered-2016/webgames/Harms/img/restartButton.png' id='reset'>");
+    $("#reset").on("click",function(){
+        i=0;
+        $("#quizArea").empty();
+        time=30;
+        totalCorrect=0;  
+        totalIncorrect=0;
+        console.log("restart");
+        displayQuestion();
+     });
 }
+
 
 $(document).ready(function(){
     $("#play1").on("click",function(){

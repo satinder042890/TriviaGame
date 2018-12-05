@@ -17,7 +17,7 @@ body{
 }
 #quizArea{
     font-family:'Courgette', cursive;
-    font-size: 3vw;
+    font-size: 2vw;
     color:whitesmoke;
     margin-left: 20px;
     
@@ -44,4 +44,20 @@ img{
     margin-right: auto;
     color:white;
     margin-top: 3%;
+}
+#result{
+    border: 5px double black;
+    background-color: #2b0602;
+    padding:0 15% 0 15%;
+    color:white;
+    margin-top: 3%;
+    width:100%;
+    margin-left: 10%;
+   
+}
+#reset{
+    width:30%;
+    height:30%;
+    margin-left: 40%;
+    margin-right: auto;
 }
