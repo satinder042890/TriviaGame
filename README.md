@@ -20,7 +20,7 @@ https://satinder042890.github.io/TriviaGame/
 * Live Markdown Editor - https://jbt.github.io/markdown-editor/
 
 ### Instructions
-* Tis is a trivia game that shows only one question until the player answers it or their time runs out.
+* This is a trivia game that shows only one question until the player answers it or their time runs out.
 * If the player selects the correct answer,it  show a screen congratulating them for choosing the right option.
 * After a few seconds, display the next question without user input.
 * The scenario is similar for wrong answers and time-outs.
